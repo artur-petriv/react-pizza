@@ -1,0 +1,64 @@
+{
+  "pizzas": [
+    {
+      "id": 0,
+      "imageUrl": "https://pizza.estal.com.ua/img/pizza/1000.jpg",
+      "name": "Один сыр",
+      "types": [0, 1],
+      "sizes": [26, 32, 40],
+      "price": 120,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 1,
+      "imageUrl": "https://pizza.estal.com.ua/img/pizza/1001.jpeg",
+      "name": "Два сыра",
+      "types": [1],
+      "sizes": [32, 40],
+      "price": 135,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://pizza.estal.com.ua/img/pizza/1002.jpg",
+      "name": "Три сыра",
+      "types": [0],
+      "sizes": [26, 32],
+      "price": 142,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://pizza.estal.com.ua/img/pizza/1003.jpg",
+      "name": "Четыри сыра",
+      "types": [0, 1],
+      "sizes": [26],
+      "price": 116,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://pizza.estal.com.ua/img/pizza/1004.jpeg",
+      "name": "Пять сыров",
+      "types": [1],
+      "sizes": [26, 32, 40],
+      "price": 163,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://pizza.estal.com.ua/img/pizza/1004.jpeg",
+      "name": "Шесть сыров",
+      "types": [0, 1],
+      "sizes": [32, 40],
+      "price": 182,
+      "category": 0,
+      "rating": 4
+    }
+  ]
+}
