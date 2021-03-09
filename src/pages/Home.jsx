@@ -1,5 +1,10 @@
 import React from "react";
-import { Categories, PizzaBlock, SortPopup } from "../components";
+import {
+  Categories,
+  PizzaBlock,
+  SortPopup,
+  PizzaLoadingBlock,
+} from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategory } from "../redux/actions/filters";
 import { fetchPizzas } from "../redux/actions/pizzas";
@@ -22,6 +27,7 @@ function Home() {
   const dispatch = useDispatch();
 
   const items = useSelector(({ pizzas }) => pizzas.items);
+  const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
 
   React.useEffect(() => {
     dispatch(fetchPizzas());
@@ -39,9 +45,9 @@ function Home() {
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
-        {items?.map((item) => (
-          <PizzaBlock key={`${item.id}`} {...item} />
-        ))}
+        {isLoaded
+          ? items?.map((item) => <PizzaBlock key={`${item.id}`} {...item} />)
+          : Array.from({ length: 8 }, (_, i) => <PizzaLoadingBlock key={i} />)}
       </div>
     </div>
   );

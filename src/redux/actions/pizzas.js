@@ -1,5 +1,4 @@
 import axios from "axios";
-// import { useDispatch } from "react-redux";
 
 export const fetchPizzas = () => (dispatch) => {
   axios.get("http://localhost:3004/pizzas").then(({ data }) => {

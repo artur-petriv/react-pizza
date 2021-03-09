@@ -11,12 +11,13 @@ function PizzaBlock({
   rating,
   category,
   id,
+  isLoading,
 }) {
   const [activeType, setActiveType] = React.useState(types[0]);
   const [avaliableSize, setAvaliableSize] = React.useState(sizes[0]);
 
   const avaliableTypes = ["тонкое", "традиционное"];
-  const avaliableSizes = [26, 32, 40];
+  const avaliableSizes = [26, 30, 40];
 
   const onSelectType = (index) => setActiveType(index);
   const onSelectSize = (size) => setAvaliableSize(size);
