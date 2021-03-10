@@ -8,6 +8,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { setCategory, setSortBy } from "../redux/actions/filters";
 import { fetchPizzas } from "../redux/actions/pizzas";
+import { addPizzaToCart } from "../redux/actions/cart";
 
 const categoryNames = [
   "Мясные",
@@ -39,8 +40,11 @@ function Home() {
   };
 
   const onSelectSortBy = (type) => {
-    console.log(type);
     dispatch(setSortBy(type));
+  };
+
+  const handleAddPizzaToCart = (obj) => {
+    dispatch(addPizzaToCart(obj));
   };
 
   return (
@@ -60,7 +64,13 @@ function Home() {
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
         {isLoaded
-          ? items?.map((item) => <PizzaBlock key={`${item.id}`} {...item} />)
+          ? items?.map((item) => (
+              <PizzaBlock
+                onClickAddPizza={handleAddPizzaToCart}
+                key={`${item.id}`}
+                {...item}
+              />
+            ))
           : Array.from({ length: 8 }, (_, i) => <PizzaLoadingBlock key={i} />)}
       </div>
     </div>
