@@ -11,6 +11,7 @@ function PizzaBlock({
   sizes,
   onClickAddPizza,
   id,
+  addedCount,
 }) {
   const [activeType, setActiveType] = React.useState(types[0]);
   const [avaliableSize, setAvaliableSize] = React.useState(sizes[0]);
@@ -82,7 +83,7 @@ function PizzaBlock({
             />
           </svg>
           <span>Добавить</span>
-          <i>2</i>
+          {addedCount ? <i>{addedCount}</i> : ""}
         </Button>
       </div>
     </div>
@@ -96,6 +97,7 @@ PizzaBlock.propTypes = {
   types: PropTypes.arrayOf(PropTypes.number).isRequired,
   sizes: PropTypes.arrayOf(PropTypes.number).isRequired,
   onClickAddPizza: PropTypes.func,
+  addedCount: PropTypes.number,
 };
 
 PizzaBlock.defaultProps = {
