@@ -1,6 +1,30 @@
 import React from "react";
+import Button from "./Button";
 
-function CartItem({ name, type, size, totalPrice, count, imageUrl }) {
+function CartItem({
+  id,
+  name,
+  type,
+  size,
+  totalPrice,
+  imageUrl,
+  totalCount,
+  plusPizza,
+  minusPizza,
+  onRemove,
+}) {
+  const handleRemoveClick = () => {
+    onRemove(id);
+  };
+
+  const handleMinusClick = () => {
+    minusPizza(id);
+  };
+
+  const handlePlusClick = () => {
+    plusPizza(id);
+  };
+
   return (
     <div className="cart__item">
       <div className="cart__item-img">
@@ -13,7 +37,12 @@ function CartItem({ name, type, size, totalPrice, count, imageUrl }) {
         </p>
       </div>
       <div className="cart__item-count">
-        <div className="button button--outline button--circle cart__item-count-minus">
+        <Button
+          onClick={handleMinusClick}
+          className="cart__item-count-minus"
+          outline
+          circle
+        >
           <svg
             width="10"
             height="10"
@@ -30,9 +59,14 @@ function CartItem({ name, type, size, totalPrice, count, imageUrl }) {
               fill="#EB5A1E"
             />
           </svg>
-        </div>
-        <b>{count}</b>
-        <div className="button button--outline button--circle cart__item-count-plus">
+        </Button>
+        <b>{totalCount}</b>
+        <Button
+          onClick={handlePlusClick}
+          className="cart__item-count-plus"
+          outline
+          circle
+        >
           <svg
             width="10"
             height="10"
@@ -49,13 +83,13 @@ function CartItem({ name, type, size, totalPrice, count, imageUrl }) {
               fill="#EB5A1E"
             />
           </svg>
-        </div>
+        </Button>
       </div>
       <div className="cart__item-price">
         <b>{totalPrice} ₽</b>
       </div>
       <div className="cart__item-remove">
-        <div className="button button--outline button--circle">
+        <Button onClick={handleRemoveClick} outline circle>
           <svg
             width="10"
             height="10"
@@ -72,7 +106,7 @@ function CartItem({ name, type, size, totalPrice, count, imageUrl }) {
               fill="#EB5A1E"
             />
           </svg>
-        </div>
+        </Button>
       </div>
     </div>
   );

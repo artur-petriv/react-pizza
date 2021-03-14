@@ -1,11 +1,12 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import {
   Categories,
   PizzaBlock,
-  SortPopup,
   PizzaLoadingBlock,
+  SortPopup,
 } from "../components";
-import { useDispatch, useSelector } from "react-redux";
 import { setCategory, setSortBy } from "../redux/actions/filters";
 import { fetchPizzas } from "../redux/actions/pizzas";
 import { addPizzaToCart } from "../redux/actions/cart";
@@ -73,7 +74,7 @@ function Home() {
                 {...item}
               />
             ))
-          : ""}
+          : Array.from({ length: 8 }, (_, i) => <PizzaLoadingBlock key={i} />)}
       </div>
     </div>
   );

@@ -1,11 +1,12 @@
 import classNames from "classnames";
 
-function Button({ className, onClick, children, outline }) {
+function Button({ className, onClick, children, outline, circle }) {
   return (
     <button
       onClick={onClick}
       className={classNames("button", className, {
         "button--outline": outline,
+        "button--circle": circle,
       })}
     >
       {children}

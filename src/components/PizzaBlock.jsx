@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import Button from "./Button";
 
 import { Skeleton } from "@material-ui/lab";
-import Box from "@material-ui/core/Box";
 
 function PizzaBlock({
   name,
