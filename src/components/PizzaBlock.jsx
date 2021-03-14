@@ -3,6 +3,9 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import Button from "./Button";
 
+import { Skeleton } from "@material-ui/lab";
+import Box from "@material-ui/core/Box";
+
 function PizzaBlock({
   name,
   price,
@@ -15,6 +18,7 @@ function PizzaBlock({
 }) {
   const [activeType, setActiveType] = React.useState(types[0]);
   const [avaliableSize, setAvaliableSize] = React.useState(sizes[0]);
+  const [loaded, setLoaded] = React.useState(false);
 
   const avaliableTypes = ["тонкое", "традиционное"];
   const avaliableSizes = [26, 30, 40];
@@ -35,7 +39,23 @@ function PizzaBlock({
 
   return (
     <div className="pizza-block">
-      <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+      {loaded ? (
+        ""
+      ) : (
+        <Skeleton
+          style={{ margin: "0 auto 19px" }}
+          variant="circle"
+          width={245}
+          height={245}
+        />
+      )}
+      <img
+        className="pizza-block__image"
+        src={imageUrl}
+        alt="Pizza"
+        style={loaded ? {} : { display: "none" }}
+        onLoad={() => setLoaded(true)}
+      />
       <h4 className="pizza-block__title">{name}</h4>
       <div className="pizza-block__selector">
         <ul>

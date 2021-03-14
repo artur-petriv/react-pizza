@@ -73,7 +73,7 @@ function Home() {
                 {...item}
               />
             ))
-          : Array.from({ length: 8 }, (_, i) => <PizzaLoadingBlock key={i} />)}
+          : ""}
       </div>
     </div>
   );
